@@ -25,7 +25,7 @@ req.body['harmonizacao'] = tipoHarmonizacoes;
 let  newVinho = new Vinho (req.body);
 newVinho.save((err, vinho) => {
 if (err) {
-res.status(500).send({ message: "Algo deu errado. Tente novamente." });
+res.status(500).send(err);
 return;
 }
 res.status(201).json({ message: "Vinho cadastrado com sucesso!" });

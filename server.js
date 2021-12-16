@@ -2,8 +2,15 @@
 
 const  express = require("express");
 const  bodyParser = require("body-parser");
+const cors = require("cors");
 
 const  app = express();
+
+// Solve CORS
+app.use(cors({ credentials: true, origin: "*" }));
+app.use(express.json());
+
+
 
 const  port = process.env.PORT || 3000;
 
@@ -16,7 +23,7 @@ res.send("Hello World");
 
 app.listen(port, () => {
 
-console.log(`Server running at http://localhost:${port}`);});
+    console.log(`Server running at http://localhost:${port}`);});
 
 require("./config/db");
 
